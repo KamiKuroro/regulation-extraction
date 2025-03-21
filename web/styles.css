@@ -1,0 +1,202 @@
+/* Custom styles for GMA Intelligent Qualification Query System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #333333;
+  --color-accent: #0066cc;
+  --color-background: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-border: #e2e2e2;
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+  --color-error: #ff3b30;
+}
+
+/* Base styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  color: var(--color-secondary);
+  background-color: var(--color-background);
+  position: relative;
+}
+
+/* Utility classes */
+.font-geist-mono {
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+}
+
+/* Subtle enhancements */
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+button, select, textarea, input {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Focus states */
+button:focus, select:focus, textarea:focus, input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.bg-white.border {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bg-white.border:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Results formatting */
+#results-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+#results-content h2:first-child {
+  margin-top: 0;
+}
+
+#results-content ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  list-style-type: none;
+}
+
+#results-content ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+#results-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+#results-content strong {
+  font-weight: 600;
+}
+
+#results-content p {
+  margin-bottom: 1rem;
+}
+
+/* Prevent zooming on mobile */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Regulation query form styles */
+.query-section {
+  margin: 2rem 0;
+  max-width: 1200px;
+}
+
+#regulation-query-form {
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox label {
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
+
+button[type="submit"] {
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #395d8f;
+}
+
+/* Results container styles */
+.requirements-container {
+  margin-top: 2rem;
+}
+
+.requirements-header h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.requirements-summary {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.requirements-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.requirements-table th,
+.requirements-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.requirements-table th {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+.requirements-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.requirements-table tr:hover {
+  background-color: #f1f1f1;
+}

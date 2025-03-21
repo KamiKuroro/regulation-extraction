@@ -1,0 +1,69 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" rx="12" fill="#F9FAFB"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="Inter, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="#111827">GMA Qualification Query System Architecture</text>
+  
+  <!-- Input Section -->
+  <rect x="100" y="100" width="200" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="200" y="130" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#111827">Input Processing</text>
+  <text x="200" y="155" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Natural language input</text>
+  <text x="200" y="175" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Feature extraction</text>
+  <text x="200" y="195" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Product categorization</text>
+  
+  <!-- Data Collection Section -->
+  <rect x="500" y="100" width="200" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="600" y="130" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#111827">Data Collection</text>
+  <text x="600" y="155" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Government websites</text>
+  <text x="600" y="175" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Certification bodies</text>
+  <text x="600" y="195" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Industry standards</text>
+  
+  <!-- Processing Core -->
+  <rect x="300" y="180" width="200" height="140" rx="8" fill="#0066CC" stroke="#0057B3" stroke-width="2"/>
+  <text x="400" y="210" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">Processing Core</text>
+  <text x="400" y="235" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white">AI Matching Engine</text>
+  <text x="400" y="255" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white">Relevance Ranking</text>
+  <text x="400" y="275" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white">Compliance Logic</text>
+  <text x="400" y="295" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white">Regulatory DB Linking</text>
+  
+  <!-- Output Generation Section -->
+  <rect x="100" y="280" width="200" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="200" y="310" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#111827">Output Generation</text>
+  <text x="200" y="335" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Structure formatting</text>
+  <text x="200" y="355" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Market requirements</text>
+  <text x="200" y="375" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Documentation links</text>
+  
+  <!-- Document Management Section -->
+  <rect x="500" y="280" width="200" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="600" y="310" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#111827">Document Management</text>
+  <text x="600" y="335" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">PDF processing</text>
+  <text x="600" y="355" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Semantic indexing</text>
+  <text x="600" y="375" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Version control</text>
+  
+  <!-- Connection Lines -->
+  <!-- Input to Core -->
+  <path d="M300 160H260C250 160 240 170 240 180V180C240 190 250 200 260 200H300" stroke="#9CA3AF" stroke-width="2"/>
+  <!-- Data Collection to Core -->
+  <path d="M500 160H540C550 160 560 170 560 180V180C560 190 550 200 540 200H500" stroke="#9CA3AF" stroke-width="2"/>
+  <!-- Core to Output -->
+  <path d="M300 240H260C250 240 240 250 240 260V260C240 270 250 280 260 280H300" stroke="#9CA3AF" stroke-width="2"/>
+  <!-- Core to Document Management -->
+  <path d="M500 240H540C550 240 560 250 560 260V260C560 270 550 280 540 280H500" stroke="#9CA3AF" stroke-width="2"/>
+  
+  <!-- Data Flow Arrows -->
+  <polygon points="295,160 305,155 305,165" fill="#9CA3AF"/>
+  <polygon points="505,160 495,155 495,165" fill="#9CA3AF"/>
+  <polygon points="295,240 305,235 305,245" fill="#9CA3AF"/>
+  <polygon points="505,240 495,235 495,245" fill="#9CA3AF"/>
+  
+  <!-- Database Icon -->
+  <ellipse cx="400" y="430" rx="80" ry="40" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <ellipse cx="400" y="400" rx="80" ry="10" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <path d="M320 400V430" stroke="#E5E7EB" stroke-width="2"/>
+  <path d="M480 400V430" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="400" y="435" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#111827">Knowledge Base</text>
+  
+  <!-- Connections to Database -->
+  <path d="M400 320V400" stroke="#9CA3AF" stroke-width="2"/>
+  <polygon points="400,395 395,385 405,385" fill="#9CA3AF"/>
+</svg>
