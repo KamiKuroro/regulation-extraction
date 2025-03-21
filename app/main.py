@@ -48,10 +48,12 @@ def get_openai_client(config=Depends(load_config)):
     client = OpenAI(api_key=config.openai_api_key)
     return client, config
 
+
 # Root route to serve the HTML file
 @app.get("/")
 async def root():
     return FileResponse(os.path.join(WEB_DIR, "index.html"))
+
 
 @app.post("/api/requirements", response_model=MarketRequirementsResponse)
 async def get_market_requirements(
@@ -59,11 +61,11 @@ async def get_market_requirements(
 ):
     """
     Get regulatory requirements for a product in a specific market.
-    
+
     Args:
         request: The market requirements request containing product type and market
         openai_data: Tuple containing OpenAI client and configuration
-        
+
     Returns:
         MarketRequirementsResponse: Structured response with requirements and summary
     """
@@ -118,12 +120,12 @@ async def get_market_requirements(
 
         # Get content from the response
         response_content = response.choices[0].message.content
-        
+
         # Parse and validate the response
         success, result = parse_regulation_data(
             response_content, request.product_type, request.market
         )
-        
+
         if success:
             return result
         else:
@@ -138,4 +140,4 @@ async def get_market_requirements(
     except Exception as e:
         error_msg = f"Unexpected error: {str(e)}"
         logger.error(error_msg, exc_info=True)
-        raise HTTPException(status_code=500, detail=error_msg) 
+        raise HTTPException(status_code=500, detail=error_msg)

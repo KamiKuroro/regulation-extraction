@@ -14,10 +14,10 @@ logger = logging.getLogger(__name__)
 def load_config() -> ConfigSettings:
     """
     Load configuration from YAML file.
-    
+
     Returns:
         ConfigSettings: Configuration settings
-        
+
     Raises:
         HTTPException: If config file is not found or is invalid
     """
@@ -48,4 +48,4 @@ def load_config() -> ConfigSettings:
         return settings
     except Exception as e:
         logger.error(f"Error loading config: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error loading config: {str(e)}") 
+        raise HTTPException(status_code=500, detail=f"Error loading config: {str(e)}")
