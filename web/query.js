@@ -618,26 +618,17 @@ function displayDataSources(sources) {
     const isLast = index === sources.length - 1;
     const borderClass = isLast ? '' : 'mb-4 pb-4 border-b border-gray-100';
     
-    // Try to extract domain for display
-    let displayName = source.name;
-    try {
-      const url = new URL(source.url);
-      displayName = url.hostname;
-    } catch (e) {
-      // Keep original name if not a valid URL
-    }
-    
     content += `
       <div class="${borderClass}">
         <div class="flex justify-between items-start">
-          <h4 class="text-sm font-semibold">${displayName}</h4>
+          <h4 class="text-sm font-semibold">${source.category || "Reference"}</h4>
           <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">${source.category || "Reference"}</span>
         </div>
         <div class="text-xs text-gray-500 mt-1">External resource</div>
         <div class="text-sm mt-2">
-          <a href="${source.url}" target="_blank" class="text-blue-600 hover:underline text-xs flex items-center">
-            <i data-lucide="external-link" class="h-3 w-3 mr-1"></i>
-            View resource
+          <a href="${source.url}" target="_blank" class="text-blue-600 hover:underline text-xs flex items-start break-all">
+            <i data-lucide="external-link" class="h-3 w-3 mr-1 flex-shrink-0 mt-0.5"></i>
+            ${source.url}
           </a>
         </div>
       </div>
@@ -694,21 +685,13 @@ function displayRequirements(data) {
     let sourceHtml = '<p class="text-sm text-gray-500 mt-2">No source provided</p>';
     
     if (req.source) {
-      // Extract domain name for display
-      let domain = '';
-      try {
-        const url = new URL(req.source);
-        domain = url.hostname.replace('www.', '');
-      } catch (e) {
-        domain = req.source;
-      }
-      
+      // Display the entire source URL without modification
       sourceHtml = `
         <div class="mt-3">
           <p class="text-sm font-medium text-gray-700 mb-1">Source:</p>
-          <a href="${req.source}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center">
-            <i data-lucide="external-link" class="h-3 w-3 mr-1"></i>
-            ${domain}
+          <a href="${req.source}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center break-all">
+            <i data-lucide="external-link" class="h-3 w-3 mr-1 flex-shrink-0"></i>
+            ${req.source}
           </a>
         </div>
       `;
@@ -726,51 +709,8 @@ function displayRequirements(data) {
     `;
   });
   
-  // Add a section for all sources at the bottom
-  content += `</div>
-    
-    <div class="mt-8 pt-6 border-t border-gray-200">
-      <h3 class="text-lg font-semibold mb-3">Reference Sources</h3>
-      <ul class="list-disc pl-5 space-y-2">
-  `;
-  
-  // Create a Set to track unique source URLs
-  const uniqueSources = new Set();
-  
-  // Add each unique source
-  data.requirements.forEach(req => {
-    if (req.source && !uniqueSources.has(req.source)) {
-      uniqueSources.add(req.source);
-      
-      // Simply use the source URL directly without any assumptions
-      let displayText = req.source;
-      
-      // Optional: Try to make the display slightly more readable
-      try {
-        const url = new URL(req.source);
-        // Just display the hostname and truncated path if it's long
-        const path = url.pathname.length > 20 ? 
-          url.pathname.substring(0, 20) + '...' : 
-          url.pathname;
-        displayText = url.hostname + path;
-      } catch (e) {
-        // If parsing fails, use the original source as-is
-      }
-      
-      content += `
-        <li class="text-sm">
-          <a href="${req.source}" target="_blank" class="text-blue-600 hover:underline">
-            ${displayText}
-          </a>
-        </li>
-      `;
-    }
-  });
-  
-  content += `
-      </ul>
-    </div>
-  `;
+  // Close the divs without adding the Reference Sources section
+  content += `</div>`;
   
   // Insert the content into the results container
   resultsContent.innerHTML = content;

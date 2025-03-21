@@ -6,8 +6,24 @@ window.addEventListener("wheel", (e)=> {
   if(isPinching) e.preventDefault();
 }, { passive: false });
 
+// Add a favicon to prevent 404 errors
+function addFavicon() {
+  // Check if a favicon already exists
+  let favicon = document.querySelector('link[rel="icon"]');
+  if (!favicon) {
+    favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/svg+xml';
+    favicon.href = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'%3E%3C/path%3E%3Cpolyline points='13 2 13 9 20 9'%3E%3C/polyline%3E%3Cline x1='16' y1='13' x2='8' y2='13'%3E%3C/line%3E%3Cline x1='16' y1='17' x2='8' y2='17'%3E%3C/line%3E%3Cline x1='10' y1='9' x2='8' y2='9'%3E%3C/line%3E%3C/svg%3E";
+    document.head.appendChild(favicon);
+  }
+}
+
 // Initialize Lucide icons
 document.addEventListener('DOMContentLoaded', () => {
+  // Add favicon to prevent 404 errors
+  addFavicon();
+  
   const lucideIcons = document.querySelectorAll('[data-lucide]');
   lucideIcons.forEach(element => {
     const iconName = element.getAttribute('data-lucide');
